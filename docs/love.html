@@ -13,9 +13,7 @@ tweets:
   retweets: "0"
 ---
 
-<div class="container">
-  {% include navbar.html id="LoveHero" %}
-</div>
+{% include navbar.html id="LoveHero" %}
 
 <section class="hero bd-is-love bd-rainbow">
   <div class="hero-body">
@@ -49,7 +47,8 @@ tweets:
     </div>
 
     <div class="bd-tws-love">
-      {% for tweet in site.data.love.tweets reversed %}
+      {% for tweetId in site.data.love.tweets reversed %}
+        {% assign tweet = site.data.love.tweetsById[tweetId] %}
         {% include tw.html tweet=tweet %}
       {% endfor %}
     </div>
